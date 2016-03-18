@@ -2,14 +2,16 @@ package bad.robot.refactoring.chapter1;
 
 public class Movie {
 
-    public static final int CHILDREN = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+    public enum PriceCode {
+        REGULAR,
+        CHILDREN,
+        NEW_RELEASE
+    }
 
     private String title;
     private Price price;
 
-    public Movie(String title, int priceCode) {
+    public Movie(String title, PriceCode priceCode) {
         this.title = title;
         setPriceCode(priceCode);
     }
@@ -18,11 +20,11 @@ public class Movie {
         return title;
     }
 
-    public int getPriceCode() {
+    public PriceCode getPriceCode() {
         return price.getPriceCode();
     }
 
-    public void setPriceCode(int priceCode) {
+    public void setPriceCode(PriceCode priceCode) {
         switch (priceCode) {
             case REGULAR:
                 price = new RegularPrice();
@@ -42,7 +44,7 @@ public class Movie {
 
     public int getFrequentRenterPoints(int daysRented) {
         // add bonus for a two day new release rental
-        if (getPriceCode() == Movie.NEW_RELEASE && daysRented > 1)
+        if (getPriceCode() == PriceCode.NEW_RELEASE && daysRented > 1)
             return 2;
         else
             return 1;

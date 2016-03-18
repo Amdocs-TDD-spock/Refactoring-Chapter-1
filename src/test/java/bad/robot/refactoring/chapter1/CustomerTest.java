@@ -7,9 +7,9 @@ import static org.junit.Assert.assertThat;
 
 public class CustomerTest {
 
-    private static final Movie THE_HULK = new Movie("The Hulk", Movie.CHILDREN);
-    private static final Movie IRON_MAN = new Movie("Iron Man 4", Movie.NEW_RELEASE);
-    private static final Movie SPIDER_MAN = new Movie("Spiderman", Movie.REGULAR);
+    private static final Movie THE_HULK = new Movie("The Hulk", Movie.PriceCode.CHILDREN);
+    private static final Movie IRON_MAN = new Movie("Iron Man 4", Movie.PriceCode.NEW_RELEASE);
+    private static final Movie SPIDER_MAN = new Movie("Spiderman", Movie.PriceCode.REGULAR);
 
     private final Customer customer = new Customer("fred");
 
