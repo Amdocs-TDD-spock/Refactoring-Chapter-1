@@ -2,12 +2,6 @@ package bad.robot.refactoring.chapter1;
 
 public class Movie {
 
-    public enum PriceCode {
-        REGULAR,
-        CHILDREN,
-        NEW_RELEASE
-    }
-
     private String title;
     private Price price;
 
