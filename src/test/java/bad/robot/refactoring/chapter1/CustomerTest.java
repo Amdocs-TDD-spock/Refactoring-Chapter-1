@@ -3,6 +3,7 @@ package bad.robot.refactoring.chapter1;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class CustomerTest {
@@ -58,4 +59,10 @@ public class CustomerTest {
 
     }
 
+
+    @Test
+    public void testHtmlStatementForBasicRegularRental() {
+        customer.addRental(new Rental(SPIDER_MAN, 2));
+        assertEquals(customer.htmlStatement(), "<h1>Rental record for <strong> fred </strong> </h1> <p>Spiderman : 2.0 </p> <br/>Account owed is <strong>2.0</strong> <br />You earned 1 frequent renter points");
+    }
 }

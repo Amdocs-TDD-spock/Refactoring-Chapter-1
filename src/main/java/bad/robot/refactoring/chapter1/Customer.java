@@ -33,6 +33,18 @@ public class Customer {
         return result;
     }
 
+    public String htmlStatement() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("<h1>Rental record for <strong> ").append(getName()).append(" </strong> </h1> <p>");
+        for(Rental rental : rentals) {
+            builder.append(rental.getMovie().getTitle()).append(" : ").append(rental.getCharge()).append(" </p> <br/>");
+        }
+        builder.append("Account owed is ").append("<strong>").append(getTotalCharge()).append("</strong> <br />");
+        builder.append("You earned ").append(getFrequentRenterPoints()).append(" frequent renter points");
+
+        return builder.toString();
+    }
+
     public int getFrequentRenterPoints() {
         int result = 0;
         for(Rental rental : rentals) {
